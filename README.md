@@ -2,6 +2,14 @@
 
 Este proyecto forma parte de la Práctica Formativa Obligatoria N°2 y tiene como objetivo levantar un entorno con Apache, PHP y MySQL utilizando Docker y Docker Compose.
 
+
+## Integrantes
+
+- Vizzotti, Guido  
+- Choque Galindo, Cynthia Estefania
+---
+
+
 ## 📦 Requisitos
 
 - Docker
@@ -48,7 +56,7 @@ Esto hará lo siguiente:
 4. **Ver la aplicación en el navegador:**
 
 ```bash
-👉 http://localhost:8080
+👉 http://localhost:8082
 ```
 Deberías ver los registros de la tabla persona.
 
@@ -68,16 +76,4 @@ Esto detiene y elimina los contenedores, red y volúmenes creados.
 
 
 
- ##  🐋 Docker Hub
-Podés crear una imagen con:
-```bash
-docker-compose build
-docker tag php-container tu_usuario_dockerhub/php-pfo:latest
-docker push tu_usuario_dockerhub/php-pfo:latest
-```
 
-## Participantes
-
-- Vizzotti, Guido  
-- Choque Galindo, Cynthia Estefania
----
