@@ -1,38 +1,31 @@
-version: '3.8'
-
 services:
   web:
-    build: .
-    container_name: php-apache
+    build: ./php
+    container_name: php-container
     ports:
-      - "8080:80"
+      - "8082:80"
     volumes:
-      - .:/var/www/html
+     - ./php:/var/www/html
     depends_on:
       - db
-    networks:
-      - mi-red
+
 
   db:
-    image: mysql:5.7
+    image: mysql:8.0.42 
     container_name: mysql-server
     restart: always
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: devops_pfo_dos
-      MYSQL_USER: root
-      MYSQL_PASSWORD: mysql234
+      MYSQL_ROOT_PASSWORD: admin234
+      MYSQL_DATABASE: devops_pfo_dos_part_dos
+      MYSQL_USER: alumnos
+      MYSQL_PASSWORD: alumno234
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql  # Uso en el servicio
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    networks:
-      - mi-red
+
 
 volumes:
-  db_data:
+  db_data:   # Declaración global
 
-networks:
-  mi-red:
-    driver: bridge
