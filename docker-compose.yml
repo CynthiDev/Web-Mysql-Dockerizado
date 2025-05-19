@@ -8,7 +8,8 @@ services:
      - ./php:/var/www/html
     depends_on:
       - db
-
+    networks:
+      - net_devops_pfo_dos_part_dos   # <-- esta red está definida más abajo
 
   db:
     image: mysql:8.0.42 
@@ -24,8 +25,14 @@ services:
     volumes:
       - db_data:/var/lib/mysql  # Uso en el servicio
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - net_devops_pfo_dos_part_dos  # <-- esta red está definida más abajo
 
 
 volumes:
   db_data:   # Declaración global
 
+
+networks:  
+  net_devops_pfo_dos_part_dos:   # <-- red definida correctamente
+    driver: bridge
